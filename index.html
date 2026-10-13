@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Dino Run | Endless Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <main class="game-container" id="game-container">
+    <!-- Header / Stats Bar -->
+    <header class="game-header">
+      <div class="brand">
+        <span class="brand-badge">⚡ RETRO ARCADE</span>
+        <h1>CYBER DINO</h1>
+      </div>
+
+      <div class="score-board">
+        <div class="score-card">
+          <span class="score-label">HI SCORE</span>
+          <span class="score-val hi-score" id="hiScore">00000</span>
+        </div>
+        <div class="score-card main-score">
+          <span class="score-label">SCORE</span>
+          <span class="score-val" id="score">00000</span>
+        </div>
+        <div class="score-card speed-card">
+          <span class="score-label">SPEED</span>
+          <span class="score-val" id="speedDisplay">1.0x</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Canvas Play Area -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="900" height="320"></canvas>
+
+      <!-- Overlay Screens -->
+      <div class="overlay active" id="startScreen">
+        <div class="overlay-card glassmorphism">
+          <div class="dino-icon-hero">🦖</div>
+          <h2>READY TO DASH?</h2>
+          <p>Dodge neon cacti, cyber pterodactyls, and high-voltage drones!</p>
+          <div class="controls-pill-group">
+            <span class="key-pill"><kbd>SPACE</kbd> or <kbd>↑</kbd> Jump</span>
+            <span class="key-pill"><kbd>↓</kbd> Duck</span>
+            <span class="key-pill">Tap screen on Mobile</span>
+          </div>
+          <button class="glow-btn" id="startBtn">START RUN</button>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="gameOverScreen">
+        <div class="overlay-card glassmorphism">
+          <span class="game-over-tag">SYSTEM COLLAPSE</span>
+          <h2>GAME OVER</h2>
+          <div class="summary-stats">
+            <div>
+              <p class="summary-lbl">FINAL SCORE</p>
+              <h3 id="finalScore">00000</h3>
+            </div>
+            <div>
+              <p class="summary-lbl">BEST RUN</p>
+              <h3 id="bestScoreSummary">00000</h3>
+            </div>
+          </div>
+          <button class="glow-btn restart-btn" id="restartBtn">RETRY RUN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Controls Bar -->
+    <footer class="game-footer">
+      <div class="audio-controls">
+        <button id="soundToggleBtn" class="icon-toggle" aria-label="Toggle sound">
+          <span id="soundIcon">🔊</span> Audio: ON
+        </button>
+      </div>
+
+      <!-- Touch Controls for Mobile/Tablet -->
+      <div class="touch-controls" id="touchControls">
+        <button class="touch-btn" id="touchDuckBtn">DUCK (↓)</button>
+        <button class="touch-btn touch-jump-btn" id="touchJumpBtn">JUMP (↑)</button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
